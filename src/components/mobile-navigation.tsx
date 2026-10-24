@@ -31,7 +31,7 @@ export function MobileNavigation({ activeHref }: { activeHref?: string }) {
   }, [open]);
 
   return (
-    <div className="mobile-navigation xl:hidden" ref={wrapper}>
+    <div className="mobile-navigation lg:hidden" ref={wrapper}>
       <button
         ref={trigger}
         className="mobile-menu-toggle"
@@ -81,6 +81,27 @@ export function MobileNavigation({ activeHref }: { activeHref?: string }) {
             {item.label}
             <Icon name="arrow" width="16" height="16" />
           </Link>
+        ))}
+        {site.moreNavigation.map((group) => (
+          <div
+            key={group.title}
+            className="mobile-menu-group"
+            role="group"
+            aria-label={group.title}
+          >
+            <p aria-hidden="true">{group.title}</p>
+            {group.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={activeHref === item.href ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+                <Icon name="arrow" width="16" height="16" />
+              </Link>
+            ))}
+          </div>
         ))}
         <Link href="/#walkthrough" onClick={() => setOpen(false)}>
           Explore the workspace

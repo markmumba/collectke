@@ -488,3 +488,113 @@
     padding-inline: 9px;
   }
 }
+
+/* Role contributions update one stable customer account. */
+.roleNode {
+  cursor: pointer;
+  isolation: isolate;
+}
+.roleNode:focus-visible {
+  outline: 2px solid #a7ecc0;
+  outline-offset: 4px;
+}
+.roleGlow {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border-radius: inherit;
+  background: #275346;
+  border: 1px solid #a7ecc099;
+  pointer-events: none;
+}
+.roleSignal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.accountRow {
+  position: relative;
+  isolation: isolate;
+}
+.rowGlow {
+  position: absolute;
+  z-index: -1;
+  inset: 2px -7px;
+  border-radius: 4px;
+  background: #e2efdf;
+  pointer-events: none;
+}
+.accountRow :global(.demo-spinner) {
+  width: 10px;
+  height: 10px;
+}
+.accountRow > span:last-child {
+  min-height: 14px;
+}
+.accountSummary {
+  position: relative;
+  isolation: isolate;
+  min-height: 38px;
+}
+.summaryGlow {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border: 1px solid #9fc69a;
+  border-radius: inherit;
+  background: #dcebd5;
+  pointer-events: none;
+}
+.workspacePlayback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  min-height: 34px;
+  color: #c5ddcf;
+  font-size: 9px;
+  line-height: 1.7;
+}
+.workspacePlayback > span {
+  max-width: 250px;
+}
+.workspaceVisual .accountBody {
+  min-height: 263px;
+}
+@media (max-width: 1100px) {
+  .workspacePlayback {
+    font-size: 8px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .roleNode:hover {
+    border-color: #a7ecc0aa;
+  }
+}
+
+/* One measured SVG owns the complete route into the customer account. */
+.visualContent {
+  position: relative;
+}
+.visualEyebrow,
+.roleNodes,
+.accountCard,
+.workspacePlayback {
+  position: relative;
+  z-index: 1;
+}
+.roleNode::after,
+.connector::before,
+.connector > span {
+  display: none;
+}
+.roleSignal {
+  z-index: 0;
+  pointer-events: none;
+}
+.roleSignal [data-workspace-signal] path:last-child {
+  filter: drop-shadow(0 0 3px #a7ecc0);
+}

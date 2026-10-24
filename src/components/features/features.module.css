@@ -155,7 +155,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.graphNodes > span {
+.graphNodes > .graphNode {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -867,7 +867,7 @@
   .graphNodes {
     width: 29%;
   }
-  .graphNodes > span {
+  .graphNodes > .graphNode {
     padding-inline: 7px;
     font-size: 7px;
   }
@@ -1007,7 +1007,7 @@
   .graphNodes {
     width: 30%;
   }
-  .graphNodes > span {
+  .graphNodes > .graphNode {
     font-size: 7px;
     padding-inline: 7px;
     gap: 5px;
@@ -1227,7 +1227,7 @@
   .hubState {
     font-size: 4.5px;
   }
-  .graphNodes > span {
+  .graphNodes > .graphNode {
     font-size: 6px;
     padding-inline: 6px;
   }
@@ -1236,5 +1236,97 @@
   }
   .manualAnswer {
     min-height: 269px;
+  }
+}
+
+/* Feature pills replay directional stories on one customer account. */
+.graphLines {
+  stroke: #78a39766;
+}
+.graphNodes > .graphNode {
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+.graphNode[aria-pressed="true"] {
+  border-color: #b4e6c8;
+  background: #31594b;
+  color: #ecfff3;
+}
+.graphNode:focus-visible {
+  outline: 2px solid #a7ecc0;
+  outline-offset: 4px;
+}
+.accountHub {
+  z-index: 1;
+  min-height: 208px;
+}
+.hubBalance strong {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.hubState {
+  min-height: 24px;
+  line-height: 1.6;
+}
+.hubState :global(.demo-spinner) {
+  width: 10px;
+  height: 10px;
+}
+.graphLines [data-workspace-signal] path:last-child {
+  filter: drop-shadow(0 0 3px #a7ecc0);
+}
+.momentDetail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 88px;
+  margin-bottom: 18px;
+  padding: 14px 0;
+  border-top: 1px solid #a8cebe1a;
+}
+.momentDetail p {
+  color: #d7f1e2;
+  font-size: 11px;
+}
+.momentDetail span {
+  display: block;
+  color: #a8c4b6;
+  font-size: 9px;
+  line-height: 1.8;
+  margin-top: 7px;
+  max-width: 340px;
+}
+@media (max-width: 1100px) {
+  .hubBalance strong {
+    font-size: 17px;
+  }
+}
+@media (max-width: 767px) {
+  .accountHub {
+    min-height: 200px;
+  }
+  .hubBalance strong {
+    font-size: 17px;
+  }
+  .momentDetail {
+    min-height: 120px;
+  }
+  .momentDetail p {
+    font-size: 10px;
+  }
+  .momentDetail span {
+    font-size: 8px;
+  }
+}
+@media (max-width: 374px) {
+  .hubBalance strong {
+    font-size: 15px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .graphNode:hover {
+    border-color: #b4e6c899;
   }
 }

@@ -209,6 +209,7 @@
   padding-bottom: 48px;
 }
 .footerIdentity :global(.brand) {
+  --brand-symbol: #a7ecc0;
   color: #e1eee5;
   font-size: 25px;
 }

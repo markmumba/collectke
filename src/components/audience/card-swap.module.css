@@ -1,0 +1,24 @@
+.stack {
+  display: grid;
+  width: 88%;
+  margin-inline: auto;
+}
+/* Both cards share one grid cell so the stack takes the height of the taller card. */
+.card {
+  grid-area: 1 / 1;
+  transform-origin: 50% 60%;
+  will-change: transform;
+}
+.card > * {
+  height: 100%;
+}
+@media (max-width: 1080px) {
+  .stack {
+    width: 92%;
+  }
+}
+@media (max-width: 760px) {
+  .stack {
+    width: 85%;
+  }
+}

@@ -1,3 +1,7 @@
+/* The hero cards swing sideways as they swap; keep that from widening the page on phones. */
+.page {
+  overflow-x: clip;
+}
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -38,17 +42,6 @@
   min-height: 475px;
   isolation: isolate;
 }
-.backPlate {
-  position: absolute;
-  width: 75%;
-  height: 66%;
-  right: 30px;
-  top: 75px;
-  background: linear-gradient(140deg, #c5e8e4, #8bc1c9 70%, #a3bce3);
-  transform: rotate(6deg);
-  border-radius: 12px;
-  z-index: -1;
-}
 .customerCard {
   border: 1px solid #456d6770;
   background: radial-gradient(ellipse at 90% 120%, #3e6650, transparent 80%), #17373a;
@@ -57,9 +50,30 @@
   border-radius: 9px;
   box-shadow: 0 17px 35px #193c4012;
 }
-.compact {
-  width: 88%;
-  margin-inline: auto;
+/* The finance view of the same sale, in the light teal of the old back plate. */
+.paymentCard {
+  border-color: #8bc1c9;
+  background: linear-gradient(140deg, #d8efec, #a9d3d6 70%, #bccbe9);
+  color: var(--color-ink);
+  box-shadow: 0 17px 35px #193c4018;
+}
+.paymentCard .cardTop > span:first-child,
+.paymentCard .identity small,
+.paymentCard .balance > span,
+.paymentCard .balance small,
+.paymentCard .recordRows > div > span:first-child {
+  color: #2f5e5c;
+}
+.paymentCard .connected {
+  background: #ffffff60;
+  border-color: #17373a26;
+}
+.paymentCard .identity > span {
+  background: #ffffff70;
+  border-color: #17373a1f;
+}
+.paymentCard .balance {
+  border-color: #17373a1f;
 }
 .cardTop {
   display: flex;
@@ -837,9 +851,6 @@
   .heroVisual {
     padding-inline: 10px;
   }
-  .compact {
-    width: 92%;
-  }
   .benefits {
     gap: 23px;
   }
@@ -872,13 +883,6 @@
     margin-inline: auto;
     padding: 30px 0 15px;
     min-height: 0;
-  }
-  .compact {
-    width: 85%;
-  }
-  .backPlate {
-    width: 75%;
-    right: 10px;
   }
   .benefitsSection {
     padding-bottom: 60px;

@@ -1,57 +1,8 @@
+import { ConnectedAccountVisual } from "./connected-account-visual";
 import { Brand } from "@/components/brand";
 import { EarlyAccess } from "@/components/early-access";
 import { Icon } from "@/components/ui/icon";
 import styles from "./features.module.css";
-
-function ConnectedAccountVisual() {
-  return (
-    <figure
-      className={styles.heroVisual}
-      aria-label="A customer account connecting documents, invoices, payments, reminders, and statements"
-    >
-      <div className={styles.visualTop}>
-        <span />
-        COLLECTKE / ONE CONNECTED WORKSPACE
-      </div>
-      <div className={styles.accountGraph} aria-hidden="true">
-        <svg className={styles.graphLines} viewBox="0 0 500 360" preserveAspectRatio="none">
-          <path d="M200 180C290 180 255 34 350 34M200 180C290 180 255 107 350 107M200 180H350M200 180C290 180 255 253 350 253M200 180C290 180 255 326 350 326" />
-        </svg>
-        <div className={styles.accountHub}>
-          <span className={styles.hubLabel}>CUSTOMER ACCOUNT</span>
-          <div className={styles.hubIdentity}>
-            <span>MT</span>
-            <p>
-              Maua Traders<small>Every detail linked.</small>
-            </p>
-          </div>
-          <div className={styles.hubBalance}>
-            <span>Balance remaining</span>
-            <strong>KES 0.00</strong>
-          </div>
-          <span className={styles.hubState}>
-            <Icon name="check" width="11" height="11" />
-            Invoice to receipt, connected
-          </span>
-        </div>
-        <div className={styles.graphNodes}>
-          {["Documents", "Invoices", "Payments", "Reminders", "Statements"].map((label) => (
-            <span key={label}>
-              <i />
-              {label}
-            </span>
-          ))}
-        </div>
-      </div>
-      <div className={styles.visualBottom}>
-        {["Your customers", "Your records", "Your next step"].map((label) => (
-          <span key={label}>{label}</span>
-        ))}
-      </div>
-      <figcaption>PRODUCT CONCEPT · SAMPLE DATA</figcaption>
-    </figure>
-  );
-}
 
 export function FeaturesHero() {
   return (

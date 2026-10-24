@@ -6,6 +6,7 @@ import { ClosingCta } from "@/components/closing-cta";
 import { EarlyAccess } from "@/components/early-access";
 import { Icon } from "@/components/ui/icon";
 import { RoleExplorer } from "@/components/audience/role-explorer";
+import { CardSwap } from "@/components/audience/card-swap";
 import styles from "./audience.module.css";
 
 export const metadata: Metadata = {
@@ -41,9 +42,9 @@ function SampleLabel() {
   return <span className={styles.sample}>PRODUCT CONCEPT · SAMPLE DATA</span>;
 }
 
-function CustomerCard({ compact = false }: { compact?: boolean }) {
+function CustomerCard() {
   return (
-    <div className={`${styles.customerCard} ${compact ? styles.compact : ""}`}>
+    <div className={styles.customerCard}>
       <div className={styles.cardTop}>
         <span>
           <Icon name="invoice" /> CUSTOMER RECORD
@@ -80,11 +81,50 @@ function CustomerCard({ compact = false }: { compact?: boolean }) {
   );
 }
 
+function PaymentCard() {
+  return (
+    <div className={`${styles.customerCard} ${styles.paymentCard}`}>
+      <div className={styles.cardTop}>
+        <span>
+          <Icon name="bank" /> PAYMENT RECORD
+        </span>
+        <span className={styles.connected}>
+          <Icon name="check" /> Matched
+        </span>
+      </div>
+      <div className={styles.identity}>
+        <span>MP</span>
+        <div>
+          M-Pesa payment<small>From Maua Traders · Reviewed by finance</small>
+        </div>
+      </div>
+      <div className={styles.balance}>
+        <span>Payment received</span>
+        <strong>
+          KES 25,000<small>Allocated to INV-0022</small>
+        </strong>
+      </div>
+      <div className={styles.recordRows}>
+        {[
+          ["Invoice total", "KES 65,000"],
+          ["Balance remaining", "KES 40,000"],
+          ["Receipt", "Ready to send"],
+        ].map(([label, value]) => (
+          <div key={label}>
+            <span>{label}</span>
+            <span>{value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function AudiencePage() {
   return (
     <>
       <SiteHeader activeHref="/who-its-for" />
-      <main id="main-content">
+      <main id="main-content" className={styles.page}>
         <section className={`page-container ${styles.hero}`} aria-labelledby="audience-page-title">
           <div className={styles.heroCopy}>
             <p className="eyebrow">FOR THE PEOPLE BEHIND GETTING PAID</p>
@@ -113,8 +153,7 @@ export default function AudiencePage() {
             className={styles.heroVisual}
             aria-label="Owners, finance, and operations connected to a sample Maua Traders account with KES 40,000 outstanding"
           >
-            <div className={styles.backPlate} aria-hidden="true" />
-            <CustomerCard compact />
+            <CardSwap cards={[<CustomerCard key="customer" />, <PaymentCard key="payment" />]} />
             <div className={styles.people}>
               {["Owner", "Finance", "Operations"].map((label, i) => (
                 <span key={label}>

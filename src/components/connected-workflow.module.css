@@ -11,9 +11,20 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 65%, #28655b26, transparent 65%),
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), #a0d7c708 25%);
+  background: radial-gradient(ellipse at 50% 65%, #28655b26, transparent 65%);
+  pointer-events: none;
+}
+.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at 1px 2px,
+    rgb(160 215 199 / 7%) 1px,
+    transparent 1.1px
+  );
+  background-size: 25% 8px;
   pointer-events: none;
 }
 .heading {
@@ -439,4 +450,210 @@
   .benefits p {
     max-width: 420px;
   }
+}
+
+/* The diagram owns its responsive connectors; card geometry stays stable. */
+.diagram {
+  position: relative;
+}
+.connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.customerRecord::after,
+.steps::before,
+.step::before {
+  display: none;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+  color: #b4ccc6;
+  font-size: 11px;
+  min-height: 35px;
+}
+.inspectButton:focus-visible {
+  outline: 2px solid #a7ecc0;
+  outline-offset: 4px;
+}
+.step {
+  isolation: isolate;
+}
+.step:last-child {
+  background: linear-gradient(150deg, #14332f, #0a2626);
+  border-color: #779e9038;
+}
+.cardGlow {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  background: linear-gradient(150deg, #255342, #10362d);
+  border: 1px solid #96c8a68c;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.inspectButton {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  cursor: pointer;
+  border-radius: inherit;
+}
+.stepStatus {
+  min-height: 23px;
+}
+.step[data-state="active"]::after,
+.step[data-state="complete"]::after {
+  background: #a7ecc0;
+  box-shadow: 0 0 12px #a7ecc055;
+}
+.connectingDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a7ecc0;
+}
+.documentPreview {
+  display: grid;
+  grid-template-columns: 43px 1fr auto;
+  align-items: center;
+  gap: 15px 20px;
+  margin-top: 30px;
+  padding: 24px 27px;
+  background: #092a2b;
+  border: 1px solid #7fb4a738;
+  border-radius: 7px;
+  min-height: 166px;
+}
+.documentIcon {
+  width: 43px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #a7ecc0;
+  border: 1px solid #a7ecc033;
+  border-radius: 5px;
+  background: #a7ecc008;
+}
+.documentLabel {
+  font-size: 7px;
+  letter-spacing: 0.11em;
+  color: #93b7a6;
+}
+.documentCopy h4 {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-top: 7px;
+}
+.documentCopy h4 span {
+  color: #a7c4b8;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.documentCopy > p {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #a7c4b8;
+}
+.documentValue {
+  text-align: right;
+}
+.documentValue > span {
+  font-size: 9px;
+  color: #a7c4b8;
+}
+.documentValue strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-top: 8px;
+}
+.documentNote {
+  grid-column: 2 / -1;
+  color: #a7c4b8;
+  font-size: 11px;
+  line-height: 1.7;
+}
+@media (hover: hover) and (pointer: fine) {
+  .step:has(.inspectButton:hover) {
+    border-color: #a7ecc099;
+  }
+}
+@media (max-width: 767px) {
+  .controls {
+    position: sticky;
+    top: 12px;
+    z-index: 5;
+    background: #0a2829f5;
+    padding: 10px 12px;
+    border: 1px solid #709e8c44;
+    border-radius: 6px;
+    font-size: 9px;
+    gap: 10px;
+  }
+  .documentPreview {
+    grid-template-columns: 32px 1fr;
+    padding: 20px 16px;
+    gap: 13px;
+    min-height: 270px;
+  }
+  .documentIcon {
+    width: 32px;
+    height: 40px;
+  }
+  .documentCopy h4 {
+    display: block;
+    font-size: 18px;
+  }
+  .documentCopy h4 span {
+    display: block;
+    margin-top: 3px;
+  }
+  .documentLabel {
+    font-size: 6px;
+    line-height: 1.8;
+  }
+  .documentValue {
+    grid-column: 2;
+    text-align: left;
+  }
+  .documentValue strong {
+    margin-top: 4px;
+  }
+  .documentNote {
+    grid-column: 1 / -1;
+  }
+}
+.backToStages {
+  display: none;
+}
+@media (max-width: 767px) {
+  .backToStages {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding-block: 6px;
+    color: #d0e9d9;
+    font-size: 11px;
+    cursor: pointer;
+  }
+}
+
+.connections [data-workspace-signal] path:last-child {
+  filter: drop-shadow(0 0 3px #a7ecc0);
 }

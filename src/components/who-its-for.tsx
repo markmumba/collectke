@@ -1,3 +1,4 @@
+import { SharedWorkspace } from "@/components/shared-workspace";
 import { Icon } from "@/components/ui/icon";
 import styles from "./who-its-for.module.css";
 
@@ -30,83 +31,6 @@ const roles = [
     icon: "invoice",
   },
 ] as const;
-
-function SharedWorkspace() {
-  return (
-    <figure
-      className={styles.workspaceVisual}
-      aria-label="Illustration of owners, finance, and operations sharing a connected customer account"
-    >
-      <div className={styles.visualContent} aria-hidden="true">
-        <div className={styles.visualEyebrow}>
-          <span />A SHARED VIEW OF THE WORK
-        </div>
-        <div className={styles.roleNodes}>
-          {[
-            { label: "Owner", initials: "OW" },
-            { label: "Finance", initials: "FN" },
-            { label: "Operations", initials: "OP" },
-          ].map((role) => (
-            <div className={styles.roleNode} key={role.label}>
-              <span>{role.initials}</span>
-              <p>{role.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className={styles.connector}>
-          <span />
-        </div>
-        <div className={styles.accountCard}>
-          <div className={styles.accountBar}>
-            <span>
-              <Icon name="invoice" width="15" height="15" />
-              Customer account
-            </span>
-            <span className={styles.linkedBadge}>
-              <Icon name="check" width="10" height="10" />
-              Connected
-            </span>
-          </div>
-          <div className={styles.accountBody}>
-            <div className={styles.accountCustomer}>
-              <span className={styles.customerAvatar}>MT</span>
-              <div>
-                <p>Maua Traders</p>
-                <span>Every detail, in one place.</span>
-              </div>
-            </div>
-            <div className={styles.accountRow}>
-              <span>Supporting documents</span>
-              <span>
-                <Icon name="check" width="12" height="12" />4 linked
-              </span>
-            </div>
-            <div className={styles.accountRow}>
-              <span>Invoice</span>
-              <span>INV-0022</span>
-            </div>
-            <div className={styles.accountRow}>
-              <span>Payment</span>
-              <span>
-                <Icon name="check" width="12" height="12" />
-                Matched
-              </span>
-            </div>
-            <div className={styles.accountSummary}>
-              <span className={styles.summaryDot} />
-              <p>Same account. Same clear picture.</p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.sharedNote}>
-          <Icon name="plus" width="13" height="13" />
-          <span>Fewer gaps between people and paperwork.</span>
-        </div>
-      </div>
-      <figcaption>ILLUSTRATIVE WORKSPACE · SAMPLE DATA</figcaption>
-    </figure>
-  );
-}
 
 export function WhoItsFor() {
   return (

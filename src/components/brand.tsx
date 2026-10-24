@@ -1,13 +1,14 @@
 export function Brand({ compact = false }: { compact?: boolean }) {
   return (
     <span className={`brand ${compact ? "brand-compact" : ""}`}>
-      <svg width="29" height="29" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <svg width="29" height="29" viewBox="8 8 48 48" fill="none" aria-hidden="true">
         <path
-          d="M16 3v9M16 20v9M3 16h9m8 0h9M6.8 6.8l6.4 6.4m5.6 5.6 6.4 6.4M6.8 25.2l6.4-6.4m5.6-5.6 6.4-6.4"
-          stroke="currentColor"
-          strokeWidth="3.5"
+          d="M44 17.5a19 19 0 1 0 0 29"
+          stroke="var(--brand-symbol, currentColor)"
+          strokeWidth="9"
+          strokeLinecap="round"
         />
-        <path d="m16 10 6 6-6 6-6-6 6-6Z" fill="currentColor" />
+        <circle cx="46" cy="32" r="5" fill="#53D643" />
       </svg>
       <span>
         collect<span className="brand-ke">ke</span>
