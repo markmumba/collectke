@@ -1,0 +1,391 @@
+.section {
+  padding-block: var(--space-section);
+}
+.frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 5vw, 75px);
+  align-items: center;
+  padding: clamp(32px, 4.3vw, 62px);
+  border: 1px solid #21483d;
+  border-radius: 16px;
+  background: #0a2a26;
+  color: var(--color-on-dark);
+}
+.frame::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 85% 100%, #75ad7d24, transparent 75%),
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), #acd9be06 25%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: #bdd8ca;
+}
+.eyebrow > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #abd4a7;
+}
+.copy h2 {
+  margin-top: 25px;
+  font-size: clamp(32px, 2.85vw, 41px);
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  font-weight: 420;
+}
+.copy h2 span {
+  color: #a6d9bb;
+}
+.introduction {
+  max-width: 420px;
+  color: #b7cfc4;
+  font-size: 13px;
+  line-height: 1.85;
+  margin-top: 22px;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 31px;
+}
+.control {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.controlIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  color: #b1d3b8;
+  border: 1px solid #a1cfb033;
+  border-radius: 6px;
+  background: #c2e7bf08;
+}
+.control h3 {
+  font-size: 15px;
+  font-weight: 450;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+.control p {
+  max-width: 360px;
+  margin-top: 7px;
+  font-size: 11px;
+  line-height: 1.85;
+  color: #b7cfc4;
+}
+.activity {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e5efe1;
+  border-radius: 10px;
+  background: #f9fcf6;
+  color: var(--color-ink);
+  box-shadow: 0 18px 50px #001b1926;
+}
+.activityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.activityEyebrow {
+  font-size: 6px;
+  letter-spacing: 0.1em;
+  color: #6b8170;
+}
+.activityHeader h3 {
+  margin-top: 7px;
+  font-size: 23px;
+  font-weight: 450;
+  letter-spacing: -0.8px;
+}
+.historyIcon {
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  color: #6f8b74;
+  background: #edf3e8;
+  border-radius: 50%;
+}
+.account {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 17px 0;
+  margin-top: 9px;
+  border-bottom: 1px solid #dde7d8;
+}
+.avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  color: #657e5d;
+  background: #e6eedf;
+  font-size: 9px;
+}
+.account p {
+  font-size: 11px;
+  font-weight: 500;
+}
+.account small {
+  display: block;
+  margin-top: 4px;
+  color: #687f6e;
+  font-size: 8px;
+  font-weight: 400;
+}
+.paidBadge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid #d4e5ce;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 8px;
+  color: #4c784d;
+  background: #e9f3e3;
+}
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 23px 0 0;
+}
+.event {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding-bottom: 21px;
+}
+.event::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  bottom: 0;
+  left: 12px;
+  width: 1px;
+  background: #d4e1cd;
+}
+.event:last-child {
+  padding-bottom: 0;
+}
+.event:last-child::before {
+  display: none;
+}
+.eventIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #dbe6d4;
+  border-radius: 50%;
+  color: #6a896b;
+  background: #f1f6ec;
+}
+.lastIcon {
+  background: #e0edda;
+  border-color: #cbdcbf;
+  color: #4d794c;
+}
+.eventContent {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+}
+.eventTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.eventTitle p {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.eventTitle > span {
+  flex-shrink: 0;
+  color: #6d8372;
+  font-size: 7px;
+  padding-top: 2px;
+}
+.eventDescription {
+  color: #627b68;
+  font-size: 8px;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.eventActor {
+  display: inline-block;
+  margin-top: 6px;
+  color: #66816a;
+  background: #edf3e8;
+  border: 1px solid #e1e9da;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 6px;
+}
+.stoppedNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 11px;
+  margin-top: 22px;
+  background: #eaf3e4;
+  border: 1px solid #d7e6cc;
+  border-radius: 5px;
+  color: #4b724f;
+}
+.stoppedNotice > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #dcebd3;
+}
+.stoppedNotice p {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.stoppedNotice small {
+  display: block;
+  margin-top: 3px;
+  color: #607e62;
+  font-size: 8px;
+  font-weight: 400;
+}
+.activity figcaption {
+  text-align: center;
+  margin-top: 18px;
+  color: #748972;
+  font-size: 6px;
+  letter-spacing: 0.1em;
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .frame {
+    gap: 30px;
+    padding: 32px;
+  }
+  .copy h2 {
+    font-size: 34px;
+  }
+  .activity {
+    padding: 18px;
+  }
+  .activityHeader h3 {
+    font-size: 22px;
+  }
+  .activityEyebrow {
+    font-size: 5px;
+  }
+  .control p {
+    font-size: 10px;
+  }
+  .event {
+    gap: 8px;
+  }
+  .eventTitle {
+    gap: 5px;
+  }
+  .eventTitle p {
+    font-size: 9px;
+  }
+  .eventDescription {
+    font-size: 7px;
+  }
+  .eventTitle > span {
+    font-size: 6px;
+  }
+}
+@media (max-width: 767px) {
+  .frame {
+    grid-template-columns: 1fr;
+    padding: 30px 22px 22px;
+    gap: 32px;
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 7px;
+  }
+  .copy h2 {
+    font-size: 35px;
+    margin-top: 22px;
+  }
+  .introduction {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  .controls {
+    margin-top: 26px;
+    gap: 23px;
+  }
+  .control {
+    gap: 10px;
+  }
+  .control h3 {
+    font-size: 15px;
+  }
+  .control p {
+    font-size: 11px;
+  }
+  .activity {
+    padding: 19px 15px;
+  }
+  .activityHeader h3 {
+    font-size: 22px;
+  }
+  .activityEyebrow {
+    font-size: 5px;
+  }
+  .event {
+    gap: 8px;
+    padding-bottom: 21px;
+  }
+  .eventTitle {
+    flex-wrap: wrap;
+    gap: 3px 8px;
+  }
+  .eventTitle p {
+    font-size: 10px;
+  }
+  .eventDescription {
+    font-size: 8px;
+  }
+  .stoppedNotice {
+    padding: 12px 9px;
+    gap: 7px;
+  }
+  .stoppedNotice p {
+    font-size: 9px;
+  }
+  .stoppedNotice small {
+    font-size: 7px;
+  }
+}

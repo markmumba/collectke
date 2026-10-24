@@ -1,0 +1,249 @@
+.band {
+  padding-block: 85px;
+  background: #f0f8f9;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.heading h2 {
+  margin-top: 20px;
+  font-size: clamp(32px, 3.4vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+}
+.heading > p:last-child {
+  margin-top: 20px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.tabs button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 88px;
+  padding: 23px;
+  background: linear-gradient(125deg, #183a40, #28575b);
+  border: 1px solid #31585b;
+  border-radius: 5px;
+  color: #e9f6f3;
+  text-align: left;
+}
+.tabs button[aria-selected="true"] {
+  background: linear-gradient(120deg, #104750, #2b6b70);
+  border-color: #83bcc1;
+  box-shadow: inset 0 -3px 0 #8cccd0;
+}
+.tabs button:hover {
+  border-color: #83bcc1;
+}
+.tabs button > span {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 26px;
+  background: #eef8f5;
+  border-radius: 3px;
+  color: #255254;
+  font-size: 10px;
+}
+.tabs strong {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.tabs svg {
+  margin-left: auto;
+  width: 17px;
+}
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+  padding: 40px;
+  min-height: 375px;
+  background: #183b40;
+  color: var(--color-on-dark);
+  border-radius: 5px;
+  margin-top: 14px;
+}
+.panel[hidden] {
+  display: none;
+}
+.copy > span {
+  color: #bed4d4;
+  font-size: 9px;
+  letter-spacing: 0.09em;
+}
+.copy h3 {
+  margin-top: 20px;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  max-width: 360px;
+}
+.copy p {
+  color: #c4d8d5;
+  font-size: 13px;
+  line-height: 1.85;
+  margin-top: 20px;
+  max-width: 430px;
+}
+.copy ul {
+  padding: 0;
+  margin: 23px 0 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.copy li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.copy li svg {
+  width: 14px;
+  height: 17px;
+  flex-shrink: 0;
+  color: #9bd3d0;
+}
+.preview {
+  padding: 28px;
+  border: 1px solid #658f8f70;
+  background: linear-gradient(145deg, #2b5558, #244a4d);
+  border-radius: 6px;
+}
+.preview > span {
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  color: #d0e0dd;
+}
+.preview > strong {
+  display: block;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin-top: 25px;
+}
+.preview > p {
+  color: #c4d8d5;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 6px;
+}
+.preview > div {
+  margin-top: 22px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-block: 13px;
+  border-top: 1px solid #ffffff1c;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.row > span:first-child {
+  color: #c4d8d5;
+}
+.row > span:last-child {
+  text-align: right;
+}
+.preview small {
+  display: block;
+  color: #bed4d4;
+  font-size: 7px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+.progress {
+  display: flex;
+  gap: 5px;
+  margin-top: 21px;
+}
+.progress span {
+  flex: 1;
+  height: 3px;
+  background: #d1e4e6;
+}
+.progress .selected {
+  background: #448f99;
+}
+.foot {
+  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+  margin-top: 16px;
+}
+@media (max-width: 1000px) {
+  .panel {
+    gap: 30px;
+    padding: 30px;
+  }
+  .tabs button {
+    padding: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .band {
+    padding-block: 60px;
+  }
+  .heading h2 {
+    font-size: 34px;
+  }
+  .tabs {
+    gap: 7px;
+  }
+  .tabs button {
+    min-height: 95px;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .tabs strong {
+    font-size: 13px;
+  }
+  .tabs svg {
+    display: none;
+  }
+  .tabs button > span {
+    width: 20px;
+    height: 23px;
+    font-size: 9px;
+  }
+  .panel {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 28px;
+    min-height: 720px;
+    align-content: start;
+  }
+  .copy h3 {
+    font-size: 29px;
+  }
+  .copy p {
+    font-size: 12px;
+  }
+  .preview {
+    padding: 23px;
+  }
+  .preview > strong {
+    font-size: 30px;
+  }
+}

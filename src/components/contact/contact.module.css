@@ -1,0 +1,230 @@
+.page {
+  background-image: linear-gradient(90deg, transparent calc(100% - 1px), #e4edeb65 1px);
+  background-size: calc((min(1280px, 100vw - var(--page-gutter) * 2)) / 4) 100%;
+  background-position: center top;
+  padding-bottom: 100px;
+}
+.heading {
+  text-align: center;
+  padding-block: 80px 70px;
+}
+.heading h1 {
+  font-size: clamp(38px, 4.3vw, 58px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.05em;
+  margin-top: 24px;
+}
+.heading > p:last-child {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 25px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.card {
+  position: relative;
+  isolation: isolate;
+  padding: 42px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  min-height: 335px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.early {
+  background: var(--color-deep);
+  color: var(--color-on-dark);
+}
+.early::before,
+.early::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 150px;
+  height: 165px;
+  right: 0;
+  border-bottom-left-radius: 20px;
+  background: linear-gradient(130deg, #406d5d15, transparent);
+  pointer-events: none;
+}
+.early::before {
+  top: 0;
+}
+.early::after {
+  bottom: 0;
+  right: 30px;
+  transform: rotate(180deg);
+}
+.workflow {
+  background: #1c454c;
+  color: var(--color-on-dark);
+}
+.guides {
+  background: #f0f8f9;
+}
+.general {
+  background: #f5f5f1;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 7px;
+  background: #ffffff0c;
+  color: #a1d0cd;
+  margin-bottom: 32px;
+}
+.guides .icon {
+  background: white;
+  color: #4b969e;
+}
+.general .icon {
+  background: #e7ece6;
+  color: #6c8581;
+}
+.card > h2 {
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.card > p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-muted);
+  margin-top: 18px;
+  max-width: 470px;
+}
+.early > p,
+.workflow > p {
+  color: #c6d9d4;
+}
+.action {
+  padding-top: 28px;
+  margin-top: auto;
+}
+.action > :global(.button) {
+  min-height: 42px;
+  font-size: 11px;
+  padding: 10px 14px;
+  gap: 12px;
+  color: var(--color-ink);
+}
+.development {
+  font-size: 9px;
+  line-height: 1.7;
+  color: #bad2c8;
+  margin-top: 15px;
+}
+.bottomNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 35px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+.bottomNote a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 15px;
+}
+.bottomNote a:hover {
+  color: var(--color-ink);
+}
+.contactForm textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  max-height: 260px;
+  padding: 10px 12px;
+  border: 1px solid #cbdad5;
+  border-radius: 6px;
+  background: white;
+  color: var(--color-ink);
+  font: 400 14px/1.6 var(--font-sans);
+}
+.contactForm textarea::placeholder {
+  color: #7c8d87;
+}
+.contactForm .optional {
+  display: inline;
+  color: var(--color-muted);
+  font-weight: 400;
+  font-size: 10px;
+}
+@media (max-width: 1000px) {
+  .card {
+    padding: 32px;
+  }
+  .card > h2 {
+    font-size: 27px;
+  }
+  .cards {
+    gap: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .heading {
+    padding-block: 55px 45px;
+  }
+  .heading h1 {
+    font-size: 39px;
+  }
+  .heading > p:last-child {
+    font-size: 13px;
+    max-width: 310px;
+    margin-inline: auto;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .card {
+    padding: 30px;
+    min-height: 325px;
+  }
+  .icon {
+    margin-bottom: 27px;
+  }
+  .card > h2 {
+    font-size: 28px;
+  }
+  .card > p {
+    font-size: 13px;
+  }
+  .page {
+    padding-bottom: 60px;
+  }
+  .bottomNote {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .bottomNote a {
+    justify-content: center;
+    flex-basis: 100%;
+    margin: 5px 0 0;
+  }
+}
+@media (max-width: 390px) {
+  .heading h1 {
+    font-size: 35px;
+  }
+  .card {
+    padding: 26px;
+  }
+  .card > h2 {
+    font-size: 26px;
+  }
+}
